@@ -63,6 +63,9 @@ def extract_text_from_pdf(pdf_path, txt_path, excel_path):
         print(f"Error: {e}")
 
 def browse_pdf():
+    for pdf_file in os.listdir(file_path):
+        if pdf_file.endswith(".pdf"):
+            file_path = os.path.join(file_path, pdf_file)
     file_path = filedialog.askopenfilename(filetypes=[("PDF Files", "*.pdf")])
     if file_path:
         txt_file_path = os.path.splitext(file_path)[0] + ".txt"

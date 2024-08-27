@@ -75,6 +75,5 @@ if file_path:
     txt_file_path = os.path.splitext(file_path)[0] + ".txt"
     excel_file_path = os.path.splitext(file_path)[0] + ".xlsx"
     extract_text_from_pdf(file_path, txt_file_path, excel_file_path)
-df1=pd.read_excel(r'CIS_Docker_Benchmark_V1.6.0.xlsx')
-df1.to_csv('CIS_Benchmarks.csv')
+
 

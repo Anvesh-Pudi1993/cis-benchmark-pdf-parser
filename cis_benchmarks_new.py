@@ -21,7 +21,7 @@ def extract_text_from_pdf(pdf_path):
                 text = page.extract_text()
 
                 # Extract the first two lines
-                first_two_lines = text.split('\n', 2)[:2]
+                first_two_lines = text.split('\n', 5)[:4]
                 first_two_lines_text = ' '.join(line.strip() for line in first_two_lines)
 
                 # Search for text between keywords with context-aware parsing

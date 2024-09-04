@@ -24,11 +24,11 @@ inputs1=tokenizer(text_column1.tolist(),renturn_tensors='pt',padding=True)
 inputs2=tokenizer(text_column2.tolist(),renturn_tensors='pt',padding=True)
 
 # Function to get BERT embeddings for a batch of text
-# def get_bert_embeddings_batch(text_list):
-#     inputs = tokenizer(text_list, return_tensors='pt', truncation=True, padding=True, max_length=128)
-#     with torch.no_grad():
-#         outputs = model(**inputs)
-#     return outputs.last_hidden_state[:, 0, :]  # Use CLS token embeddings
+def get_bert_embeddings_batch(text_list):
+    inputs = tokenizer(text_list, return_tensors='pt', truncation=True, padding=True, max_length=128)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return outputs.last_hidden_state[:, 0, :]  # Use CLS token embeddings
 
 # Generate BERT embeddings for df2 (batched)
 batch_size = 32  # Adjust batch size based on your system's memory

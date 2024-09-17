@@ -5,8 +5,8 @@ from torch.nn.functional import cosine_similarity
 
 # Load Excel files
 components_df = pd.read_excel('CSI_clean_Verify_V1.xlsx')  # Replace with your actual file path
-controls_df = pd.read_excel('MCL.xlsx')   # Replace with your actual file path
-
+controls_df = pd.read_excel('MCL.xlsx',sheet_name=None)   # Replace with your actual file path
+controls_df
 # Extract the relevant columns
 guidelines = components_df['Guidelines'].tolist()
 control_domains = controls_df['Control domain'].tolist()

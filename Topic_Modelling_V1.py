@@ -17,43 +17,43 @@ control_domains = controls_df['Control domain'].tolist()
 
 # Vectorize guidelines and descriptions separately
 guideline_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
-description_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
+# description_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
 
 # Fit and transform guidelines and descriptions into document-term matrices
 guideline_dtm = guideline_vectorizer.fit_transform(guidelines)
-description_dtm = description_vectorizer.fit_transform(descriptions)
+# description_dtm = description_vectorizer.fit_transform(descriptions)
 
 # Train an LDA model for guidelines and descriptions
 num_topics = 10  # Adjust the number of topics as needed
 guideline_lda = LDA(n_components=num_topics, random_state=42)
-description_lda = LDA(n_components=num_topics, random_state=42)
+# description_lda = LDA(n_components=num_topics, random_state=42)
 
 # Fit the LDA models
 guideline_lda.fit(guideline_dtm)
-description_lda.fit(description_dtm)
+# description_lda.fit(description_dtm)
 
 # Transform the texts into topic distributions
 guideline_topic_distributions = guideline_lda.transform(guideline_dtm)
-description_topic_distributions = description_lda.transform(description_dtm)
+# description_topic_distributions = description_lda.transform(description_dtm)
 
 # Vectorize control domains and control statements separately
-control_domain_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
+# control_domain_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
 control_statement_vectorizer = CountVectorizer(max_df=0.95, min_df=2, stop_words='english')
 
 # Fit and transform control domains and control statements into document-term matrices
-control_domain_dtm = control_domain_vectorizer.fit_transform(control_domains)
+# control_domain_dtm = control_domain_vectorizer.fit_transform(control_domains)
 control_statement_dtm = control_statement_vectorizer.fit_transform(control_statements)
 
 # Train an LDA model for control domains and statements
-control_domain_lda = LDA(n_components=num_topics, random_state=42)
+# control_domain_lda = LDA(n_components=num_topics, random_state=42)
 control_statement_lda = LDA(n_components=num_topics, random_state=42)
 
 # Fit the LDA models
-control_domain_lda.fit(control_domain_dtm)
+# control_domain_lda.fit(control_domain_dtm)
 control_statement_lda.fit(control_statement_dtm)
 
 # Transform the texts into topic distributions for control domains and statements
-control_domain_topic_distributions = control_domain_lda.transform(control_domain_dtm)
+# control_domain_topic_distributions = control_domain_lda.transform(control_domain_dtm)
 control_statement_topic_distributions = control_statement_lda.transform(control_statement_dtm)
 
 # Create a list to store the results

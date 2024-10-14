@@ -78,7 +78,7 @@ def save_to_excel(dataframe, output_excel_path):
     dataframe.to_excel(output_excel_path, index=False)
 
 # Example usage
-folder_path = 'C:/Users/Anvesh Pudi/Downloads/CIS_Benchmark/CIS_Pdfs'  # Replace with your folder path containing PDFs
+folder_path = 'C:/Users/Anvesh Pudi/Downloads/CIS_Benchmark/CIS_Pdfs_Test'  # Replace with your folder path containing PDFs
 output_excel_path = 'combined_cis_controls_tables_with_component_final.xlsx'  # Output Excel file
 
 combined_df = extract_from_folder(folder_path)
@@ -88,4 +88,4 @@ if combined_df.empty:
     print("No 'CIS Controls:' tables found in any PDF")
 else:
     save_to_excel(combined_df, output_excel_path)
-    print(f"Combined tables saved to {output_excel_path}")
+    print(f"Combined tables saved to {output_excel_path}") 

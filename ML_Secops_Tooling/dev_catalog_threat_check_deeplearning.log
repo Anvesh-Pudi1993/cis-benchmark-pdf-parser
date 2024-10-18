@@ -1,0 +1,20 @@
+INFO:root:Model saved and encrypted at encrypted_model.pkl
+WARNING:root:Model integrity check failed for encrypted_model.pkl
+WARNING:root:Data Poisoning Alert: 2 outliers detected in feature set
+ERROR:root:Failed to check S3 ACL for bucket my-dev-bucket: Unable to locate credentials
+INFO:root:Model saved and encrypted at encrypted_model.json
+WARNING:root:Model integrity check failed for encrypted_model.json
+WARNING:root:Data Poisoning Alert: 500 outliers detected in feature set
+INFO:root:CPU usage is normal: 49.9%
+INFO:root:Storage path exists: encrypted_model.json
+INFO:root:Model saved and encrypted at encrypted_model.json
+WARNING:root:Model integrity check failed for encrypted_model.json
+WARNING:root:Data Poisoning Alert: 500 outliers detected in feature set
+INFO:root:CPU usage is normal: 52.6%
+INFO:root:Storage path exists: encrypted_model.json
+INFO:root:Model saved and encrypted at encrypted_model.json
+WARNING:root:Model integrity check failed for encrypted_model.json
+WARNING:root:Data Poisoning Alert: 500 outliers detected in feature set
+INFO:root:CPU usage is normal: 7.2%
+INFO:root:Storage path exists: encrypted_model.json
+WARNING:root:Adversarial Attack Detected: Accuracy on adversarial examples is 0.12

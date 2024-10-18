@@ -1,0 +1,8 @@
+ERROR:root:Failed to upload logistic_regression_model.pkl to S3: Unable to locate credentials
+ERROR:root:Failed to upload kmeans_model.pkl to S3: Unable to locate credentials
+WARNING:root:No encryption found for bucket ml-model-storage: Unable to locate credentials
+ERROR:root:Failed to check ACL for bucket ml-model-storage: Unable to locate credentials
+WARNING:root:Data Poisoning Alert: 1 outliers detected in feature set.
+ERROR:root:Error verifying model integrity: [Errno 2] No such file or directory: 'logistic_regression_model.pkl'
+WARNING:root:Data Poisoning Alert: 1 outliers detected in feature set.
+ERROR:root:Error verifying model integrity: [Errno 2] No such file or directory: 'logistic_regression_model.pkl'

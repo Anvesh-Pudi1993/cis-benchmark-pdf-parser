@@ -3,21 +3,24 @@ import hashlib
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import numpy as np
 import logging
 import os
-import cleverhans
-from art.estimators.classification import SklearnClassifier
-from art.attacks import FastGradientMethod
-from art.metrics import get_dataset_mean
+import tensorflow as tf  # TensorFlow for Keras model
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+# from cleverhans.tf2.attacks import fast_gradient_method
+from cleverhans.utils import set_log_level
 
 # Initialize logging to a file
-logging.basicConfig(filename="ml_pipeline_threats.log", level=logging.INFO, 
+logging.basicConfig(filename="ml_pipeline_threats_V2.log", level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Threat detection functions
+# Set logging level for CleverHans
+set_log_level(logging.WARNING)
+
+# Threat detection functions...
 
 def check_data_integrity(data):
     """ Check data integrity by comparing the hash value before and after loading. """
@@ -100,12 +103,13 @@ def check_dev_catalog(model_version, dataset_hash):
 
 def check_model_training(X_train, y_train, model):
     """ Check for model training integrity and performance. """
-    model.fit(X_train, y_train)
+    model.fit(X_train, y_train, epochs=50, batch_size=5, verbose=0)  # Ensure y_train is integers
     logging.info("Model Training Completed.")
     
     # Check model performance
     y_train_pred = model.predict(X_train)
-    accuracy = accuracy_score(y_train, y_train_pred)
+    y_train_pred_classes = np.argmax(y_train_pred, axis=1)  # Convert predictions to class labels
+    accuracy = accuracy_score(y_train, y_train_pred_classes)
     logging.info(f"Model Training Accuracy: {accuracy:.2f}")
 
     if accuracy < 0.5:  # Example threshold for minimal accuracy
@@ -113,10 +117,12 @@ def check_model_training(X_train, y_train, model):
     else:
         logging.info("Model Training Verified: Accuracy is acceptable.")
 
+
 def check_model_validation(X_test, y_test, model):
     """ Validate the model using the test set. """
     y_test_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_test_pred)
+    y_test_pred_classes = np.argmax(y_test_pred, axis=1)  # Convert predictions to class labels
+    accuracy = accuracy_score(y_test, y_test_pred_classes)  # Directly compare y_test with integer labels
     logging.info(f"Model Validation Accuracy: {accuracy:.2f}")
 
     if accuracy < 0.5:  # Example threshold for minimal accuracy
@@ -124,44 +130,52 @@ def check_model_validation(X_test, y_test, model):
     else:
         logging.info("Model Validation Verified: Accuracy is acceptable.")
 
-def check_adversarial_attacks(model, X_train, y_train):
-    """ Check for adversarial attacks using CleverHans and ART. """
-    # Create a SklearnClassifier wrapper
-    art_model = SklearnClassifier(model)
-    
-    # Example of an adversarial attack (Fast Gradient Method)
-    fgsm = FastGradientMethod(art_model)
+from cleverhans.tf2.attacks.fast_gradient_method import fast_gradient_method  # Adjust based on your version
 
-    # Generate adversarial examples
-    X_train_adv = fgsm.generate(X_train)
-    y_train_pred_adv = model.predict(X_train_adv)
+def check_adversarial_attacks(model, X_train, y_train):
+    """ Check for adversarial attacks using CleverHans. """
+    # Convert to TensorFlow tensor
+    X_train_tensor = tf.convert_to_tensor(X_train, dtype=tf.float32)  
     
+    # Create a function for model predictions
+    def get_logits(x):
+        return model(x, training=False)  # Ensure model is in inference mode
+
+    # Generate adversarial examples using Fast Gradient Method
+    X_train_adv = fast_gradient_method(get_logits, X_train_tensor, eps=0.1, norm=np.inf)  # Epsilon defines the attack strength
+    
+    # Get predictions for adversarial examples
+    y_train_pred_adv = model(X_train_adv)
+    y_train_pred_adv_classes = np.argmax(y_train_pred_adv, axis=1)  # Convert predictions to class labels
+
     # Check if the model is fooled by adversarial examples
-    if not np.array_equal(y_train, y_train_pred_adv):
+    if not np.array_equal(y_train, y_train_pred_adv_classes):  # Compare with original y_train
         logging.warning("Adversarial Attack Detected: Model predictions differ on adversarial examples.")
     else:
         logging.info("Model is robust to adversarial attacks: Predictions remain consistent.")
 
-def check_data_drift(X_train, X_test):
-    """ Check for data drift using ART. """
-    # Example implementation of checking for data drift
-    drift_threshold = 0.1  # Set your own threshold for drift detection
-    
-    # Calculate means for training and test sets
-    mean_train = get_dataset_mean(X_train)
-    mean_test = get_dataset_mean(X_test)
-    
-    drift = np.abs(mean_train - mean_test)
-    
-    if np.any(drift > drift_threshold):
-        logging.warning("Data Drift Detected: Training and test set means are significantly different.")
-    else:
-        logging.info("No significant data drift detected.")
-
-# Load the Iris dataset
 iris = load_iris()
 df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
 df['target'] = iris.target
+
+# Split the dataset
+X = df.drop('target', axis=1)
+y = df['target'].values  # Ensure y is an integer array
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Scale the features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Define the model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(10, activation='relu', input_shape=(X_train_scaled.shape[1],)),
+    tf.keras.layers.Dense(3, activation='softmax')  # 3 classes for the Iris dataset
+])
+
+# Compile the model using sparse_categorical_crossentropy
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # Stage 1: Data Injection (Ingestion)
 logging.info("Stage 1: Data Injection")
@@ -169,13 +183,6 @@ check_data_integrity(df)
 check_data_format(df)
 
 # Stage 2: Data Transformation
-X = df.drop('target', axis=1)
-y = df['target']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
 logging.info("Stage 2: Data Transformation")
 check_data_transformation(X_train_scaled, X_test_scaled)
 
@@ -183,28 +190,18 @@ check_data_transformation(X_train_scaled, X_test_scaled)
 logging.info("Stage 3: Feature Engineering")
 check_featurization(X_train_scaled)
 
-# Stage 4: Development Catalog Check
-logging.info("Stage 4: Development Catalog Check")
-model_version = "1.0"
-dataset_hash = hashlib.sha256(df.to_csv(index=False).encode()).hexdigest()
-check_dev_catalog(model_version, dataset_hash)
+# Stage 4: Model Training with TensorFlow Keras
+logging.info("Stage 4: Model Training")
+check_model_training(X_train_scaled, y_train, model)  # Pass y_train directly without conversion
 
-# Stage 5: Model Training
-model = LogisticRegression(max_iter=200)
-logging.info("Stage 5: Model Training")
-check_model_training(X_train_scaled, y_train, model)
+# Stage 5: Adversarial Attack Check
+logging.info("Stage 5: Check for Adversarial Attacks")
+check_adversarial_attacks(model, X_train_scaled, y_train)  # Pass y_train directly without conversion
 
 # Stage 6: Model Validation
 logging.info("Stage 6: Model Validation")
-check_model_validation(X_test_scaled, y_test, model)
+check_model_validation(X_test_scaled, y_test, model)  # Pass y_test directly without conversion
 
-# Stage 7: Check for Adversarial Attacks
-logging.info("Stage 7: Adversarial Attack Detection")
-check_adversarial_attacks(model, X_train_scaled, y_train)
-
-# Stage 8: Check for Data Drift
-logging.info("Stage 8: Data Drift Detection")
-check_data_drift(X_train_scaled, X_test_scaled)
-
-# Final log message
-logging.info("Machine Learning Pipeline Completed.")
+# Stage 7: Development Catalog Check
+dataset_hash = hashlib.sha256(df.to_csv(index=False).encode()).hexdigest()
+check_dev_catalog("1.0", dataset_hash)  # Pass the expected version

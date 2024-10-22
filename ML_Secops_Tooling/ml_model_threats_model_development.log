@@ -1,0 +1,48 @@
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 83.33%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 86.67%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.estimators.scikitlearn:Input shape not recognised. The model might not have been fitted.
+WARNING:art.estimators.classification.scikitlearn:Number of classes not recognised. The model might not have been fitted.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 93.33%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.estimators.scikitlearn:Input shape not recognised. The model might not have been fitted.
+WARNING:art.estimators.classification.scikitlearn:Number of classes not recognised. The model might not have been fitted.
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 93.33%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 90.00%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:art.attacks.poisoning.poisoning_attack_svm:Success rate of poisoning attack SVM attack: 93.33%
+INFO:art.attacks.evasion.fast_gradient:Using model predictions as correct labels for FGM.
+INFO:art.attacks.evasion.fast_gradient:Success rate of FGM attack: 0.00%
+WARNING:art.attacks.extraction.copycat_cnn:This attack does not use the provided label y.
+INFO:root:=== ML Threat Detection on Iris Dataset ===
+INFO:root:Data Poisoning detected! Original accuracy: 96.67%, Poisoned accuracy: 0.00%
+INFO:root:Model Evasion detected! Original accuracy: 96.67%, Adversarial accuracy: 93.33%
+INFO:root:Membership inference detected on training set: 0.5333333611488342
+INFO:root:Membership inference detected on test set: 0.3333333432674408

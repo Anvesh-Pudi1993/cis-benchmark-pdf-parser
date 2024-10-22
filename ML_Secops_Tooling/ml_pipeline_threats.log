@@ -1,0 +1,107 @@
+2024-10-22 12:56:54,752 - INFO - Stage 1: Data Injection
+2024-10-22 12:56:54,756 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 12:56:54,760 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 12:56:54,763 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 12:56:54,763 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 12:56:54,768 - INFO - Stage 2: Data Transformation
+2024-10-22 12:56:54,768 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 12:56:54,768 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 12:56:54,768 - INFO - Stage 3: Featurization
+2024-10-22 12:56:54,768 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 12:56:54,768 - INFO - Feature Scaling Check Passed.
+2024-10-22 12:56:54,768 - INFO - Stage 4: Development Catalog
+2024-10-22 12:56:54,774 - INFO - Model Version: 1.0
+2024-10-22 12:56:54,774 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 12:56:54,774 - INFO - Development Catalog Verified: Model and data versions are consistent.
+2024-10-22 12:56:54,774 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 12:56:54,774 - INFO - Stage 5: Production Catalog
+2024-10-22 12:56:54,774 - INFO - Production Catalog Verified: Model deployed successfully.
+2024-10-22 12:56:54,774 - WARNING - Model Integrity Compromised: Production model hash mismatch detected.
+2024-10-22 12:56:54,774 - INFO - ML Pipeline Threat Analysis Completed.
+2024-10-22 12:58:03,833 - INFO - Stage 1: Data Injection
+2024-10-22 12:58:03,837 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 12:58:03,841 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 12:58:03,842 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 12:58:03,842 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 12:58:03,848 - INFO - Stage 2: Data Transformation
+2024-10-22 12:58:03,848 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 12:58:03,848 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 12:58:03,848 - INFO - Stage 3: Featurization
+2024-10-22 12:58:03,848 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 12:58:03,848 - INFO - Feature Scaling Check Passed.
+2024-10-22 12:58:03,848 - INFO - Stage 4: Development Catalog
+2024-10-22 12:58:03,848 - INFO - Model Version: 1.0
+2024-10-22 12:58:03,848 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 12:58:03,848 - INFO - Development Catalog Verified: Model and data versions are consistent.
+2024-10-22 12:58:03,848 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 12:58:03,848 - INFO - Stage 5: Production Catalog
+2024-10-22 12:58:03,848 - INFO - Production Catalog Verified: Model deployed successfully.
+2024-10-22 12:58:03,848 - WARNING - Model Integrity Compromised: Production model hash mismatch detected.
+2024-10-22 12:58:03,848 - INFO - ML Pipeline Threat Analysis Completed.
+2024-10-22 13:09:38,046 - INFO - Stage 1: Data Injection
+2024-10-22 13:09:38,062 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:09:38,062 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:09:38,062 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:09:38,062 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:09:38,062 - INFO - Stage 2: Data Transformation
+2024-10-22 13:09:38,062 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:09:38,062 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:09:38,062 - INFO - Stage 3: Featurization
+2024-10-22 13:09:38,062 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:09:38,062 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:09:38,214 - INFO - Stage 4: Adversarial Attack Simulation
+2024-10-22 13:11:39,537 - INFO - Stage 1: Data Injection
+2024-10-22 13:11:39,537 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:11:39,537 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:11:39,537 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:11:39,537 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:11:39,553 - INFO - Stage 2: Data Transformation
+2024-10-22 13:11:39,553 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:11:39,553 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:11:39,553 - INFO - Stage 3: Featurization
+2024-10-22 13:11:39,553 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:11:39,553 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:11:41,328 - INFO - Stage 5: Adversarial Attack Simulation
+2024-10-22 13:11:41,351 - WARNING - Adversarial Vulnerability Detected: Model is susceptible to FGSM attack.
+2024-10-22 13:11:41,352 - INFO - Stage 6: Development Catalog
+2024-10-22 13:11:41,354 - INFO - Model Version: 1.0
+2024-10-22 13:11:41,354 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:11:41,354 - INFO - Development Catalog Verified: Model and data versions are consistent.
+2024-10-22 13:11:41,354 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 13:11:41,354 - INFO - Stage 7: Production Catalog
+2024-10-22 13:11:41,354 - INFO - Production Catalog Verified: Model deployed successfully.
+2024-10-22 13:11:41,355 - WARNING - Model Integrity Compromised: Production model hash mismatch detected.
+2024-10-22 13:11:41,355 - INFO - ML Pipeline Threat Analysis Completed.
+2024-10-22 13:14:26,166 - INFO - Stage 1: Data Injection
+2024-10-22 13:14:26,175 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:14:26,179 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:14:26,182 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:14:26,182 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:14:26,187 - INFO - Stage 2: Data Transformation
+2024-10-22 13:14:26,187 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:14:26,187 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:14:26,187 - INFO - Stage 3: Featurization
+2024-10-22 13:14:26,187 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:14:26,187 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:14:40,294 - INFO - Stage 1: Data Injection
+2024-10-22 13:14:40,311 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:14:40,311 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:14:40,311 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:14:40,311 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:14:40,318 - INFO - Stage 2: Data Transformation
+2024-10-22 13:14:40,318 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:14:40,318 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:14:40,318 - INFO - Stage 3: Featurization
+2024-10-22 13:14:40,319 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:14:40,319 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:14:41,415 - INFO - Stage 5: Adversarial Attack Simulation
+2024-10-22 13:14:41,415 - WARNING - Adversarial Vulnerability Detected: Model is susceptible to FGSM attack.
+2024-10-22 13:14:41,415 - INFO - Stage 6: Development Catalog
+2024-10-22 13:14:41,415 - INFO - Model Version: 1.0
+2024-10-22 13:14:41,415 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:14:41,415 - INFO - Development Catalog Verified: Model and data versions are consistent.
+2024-10-22 13:14:41,415 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 13:14:41,415 - INFO - Stage 7: Production Catalog
+2024-10-22 13:14:41,415 - INFO - Production Catalog Verified: Model deployed successfully.
+2024-10-22 13:14:41,415 - WARNING - Model Integrity Compromised: Production model hash mismatch detected.
+2024-10-22 13:14:41,415 - INFO - ML Pipeline Threat Analysis Completed.

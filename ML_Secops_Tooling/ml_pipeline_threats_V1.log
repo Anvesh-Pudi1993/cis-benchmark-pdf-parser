@@ -1,0 +1,36 @@
+2024-10-22 13:21:02,935 - INFO - Stage 1: Data Injection
+2024-10-22 13:21:02,935 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:21:02,935 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:21:02,951 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:21:02,951 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:21:02,961 - INFO - Stage 2: Data Transformation
+2024-10-22 13:21:02,967 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:21:02,967 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:21:02,967 - INFO - Stage 3: Featurization
+2024-10-22 13:21:02,968 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:21:02,968 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:21:02,968 - INFO - ML Pipeline Threat Analysis Completed.
+2024-10-22 13:28:39,376 - INFO - Stage 1: Data Injection
+2024-10-22 13:28:39,376 - INFO - Initial Data Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:28:39,376 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 13:28:39,392 - WARNING - Duplicate rows detected in the dataset.
+2024-10-22 13:28:39,392 - INFO - Schema Check Passed: No schema issues.
+2024-10-22 13:28:39,392 - INFO - Stage 2: Data Transformation
+2024-10-22 13:28:39,392 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 13:28:39,392 - INFO - Transformation Check Passed: No invalid transformations.
+2024-10-22 13:28:39,392 - INFO - Stage 3: Featurization
+2024-10-22 13:28:39,392 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 13:28:39,392 - INFO - Feature Scaling Check Passed.
+2024-10-22 13:28:39,392 - INFO - Stage 4: Development Catalog
+2024-10-22 13:28:39,392 - INFO - Model Version: 1.0
+2024-10-22 13:28:39,392 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
+2024-10-22 13:28:39,392 - INFO - Development Catalog Verified: Model and data versions are consistent.
+2024-10-22 13:28:39,392 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 13:28:39,392 - INFO - Stage 5: Model Training
+2024-10-22 13:28:39,407 - INFO - Model Training Completed.
+2024-10-22 13:28:39,407 - INFO - Model Training Accuracy: 0.97
+2024-10-22 13:28:39,407 - INFO - Model Training Verified: Accuracy is acceptable.
+2024-10-22 13:28:39,407 - INFO - Stage 6: Model Validation
+2024-10-22 13:28:39,407 - INFO - Model Validation Accuracy: 1.00
+2024-10-22 13:28:39,407 - INFO - Model Validation Verified: Accuracy is acceptable.
+2024-10-22 13:28:39,407 - INFO - ML Pipeline Threat Analysis Completed.

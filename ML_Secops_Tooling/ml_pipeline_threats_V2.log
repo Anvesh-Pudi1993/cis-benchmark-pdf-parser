@@ -187,3 +187,20 @@
 2024-10-22 16:47:41,313 - INFO - Dataset Hash: 2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5
 2024-10-22 16:47:41,313 - INFO - Development Catalog Verified: Model and data versions are consistent.
 2024-10-22 16:47:41,313 - WARNING - Unauthorized Access Detected: None attempted to access the development catalog.
+2024-10-22 17:14:02,902 - INFO - Loading CIFAR-10 dataset
+2024-10-22 17:14:08,342 - INFO - Building CNN model
+2024-10-22 17:14:10,653 - INFO - Compiling model
+2024-10-22 17:14:10,669 - INFO - Stage 1: Data Injection
+2024-10-22 17:14:27,115 - INFO - Initial Data Hash: 24a82d36df8386d0fbd179d873995b2d603107c67136ef83f29b9b01c9ae5247
+2024-10-22 17:14:35,974 - WARNING - Data Integrity Compromised: Hash mismatch detected after ingestion.
+2024-10-22 17:14:36,197 - INFO - Stage 2: Data Transformation
+2024-10-22 17:14:36,214 - INFO - Data Transformation Verified: No data leakage detected.
+2024-10-22 17:14:40,004 - INFO - Transformation Check Passed: No invalid values detected.
+2024-10-22 17:14:40,004 - INFO - Stage 3: Feature Engineering
+2024-10-22 17:14:41,132 - INFO - Featurization Verified: No suspicious feature manipulation detected.
+2024-10-22 17:14:41,556 - INFO - Feature Scaling Check Passed: Feature values within expected range.
+2024-10-22 17:14:41,556 - INFO - Stage 4: Model Training
+2024-10-22 17:18:51,256 - INFO - Model Training Completed.
+2024-10-22 17:19:13,529 - INFO - Model Training Accuracy: 0.79
+2024-10-22 17:19:13,529 - INFO - Model Training Verified: Accuracy is acceptable.
+2024-10-22 17:19:13,529 - INFO - Stage 5: Check for Adversarial Attacks

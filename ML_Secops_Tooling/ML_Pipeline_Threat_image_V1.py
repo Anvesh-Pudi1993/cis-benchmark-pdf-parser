@@ -8,8 +8,9 @@ import os
 from cleverhans.tf2.attacks.fast_gradient_method import fast_gradient_method
 from cleverhans.utils import set_log_level
 
+
 # Initialize logging to a file
-logging.basicConfig(filename="ml_pipeline_threats_V3.log", level=logging.INFO, 
+logging.basicConfig(filename="ml_pipeline_threats_V4.log", level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Set logging level for CleverHans
@@ -49,6 +50,16 @@ def check_data_integrity(data):
         logging.warning("Data Integrity Compromised: Hash mismatch detected after ingestion.")
     else:
         logging.info("Data Integrity Verified: No issues with the data.")
+
+def check_data_poisoning(data):
+    # Example poisoning detection logic (Placeholder for more complex checks)
+    if np.mean(data) < 50:  # Example condition for detection
+        logging.warning("Data poisoning suspected: Mean pixel value lower than expected.")
+    else:
+        logging.info("No data poisoning detected.")
+
+# Step 1: Check for threat vectors in data injection and transformation
+
 
 # Function to check data transformation
 def check_data_transformation(X_train, X_test):
@@ -168,27 +179,32 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 logging.info("Stage 1: Data Injection")
 check_data_integrity(X_train)
 
-# Stage 2: Data Transformation Check
-logging.info("Stage 2: Data Transformation")
+# Stage 2: Data Poisioning check
+
+logging.info("Stage 2: Checking data poisioning for CIFAR-10")
+check_data_poisoning(X_train)
+
+# Stage 3: Data Transformation Check
+logging.info("Stage 3: Data Transformation")
 check_data_transformation(X_train, X_test)
 
-# Stage 3: Feature Engineering Check (Featurization)
-logging.info("Stage 3: Feature Engineering")
+# Stage 4: Feature Engineering Check (Featurization)
+logging.info("Stage 4: Feature Engineering")
 check_featurization(X_train)
 
-# Stage 4: Model Training
-logging.info("Stage 4: Model Training")
+# Stage 5: Model Training
+logging.info("Stage 5: Model Training")
 check_model_training(X_train, y_train, model)
 
-# Stage 5: Check for Adversarial Attacks
-logging.info("Stage 5: Check for Adversarial Attacks")
+# Stage 6: Check for Adversarial Attacks
+logging.info("Stage 6: Check for Adversarial Attacks")
 check_adversarial_attacks(model, X_train, y_train)
 
-# Stage 6: Model Validation
-logging.info("Stage 6: Model Validation")
+# Stage 7: Model Validation
+logging.info("Stage 7: Model Validation")
 check_model_validation(X_test, y_test, model)
 
-# Stage 7: Development Catalog Check
-logging.info('stage 7: check for dev catalog')
+# Stage 8: Development Catalog Check
+logging.info('stage 8: check for dev catalog')
 dataset_hash = hashlib.sha256(X_train.tobytes()).hexdigest()
 check_dev_catalog("1.0", dataset_hash)

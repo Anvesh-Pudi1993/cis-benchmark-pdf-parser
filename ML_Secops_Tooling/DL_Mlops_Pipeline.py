@@ -12,7 +12,7 @@ from tensorflow import keras
 import tensorflow as tf
 
 # Initialize logging
-logging.basicConfig(filename="mlops_DL_threat_vectors.log", level=logging.INFO,
+logging.basicConfig(filename="mlops_threat_vectors.log", level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")
 
 # Load CIFAR-10 data
@@ -32,8 +32,15 @@ check_data_poisoning(train_images)
 
 # Step 2: EDA - Check for data leakage and anomalies using Deepchecks
 logging.info("Step 2: Running EDA checks with Deepchecks")
-train_dataset = Dataset(train_images, train_labels)
-test_dataset = Dataset(test_images, test_labels)
+
+# Reshape images to 2D
+train_images_flat = train_images.reshape((train_images.shape[0], -1))  # Shape (50000, 3072)
+test_images_flat = test_images.reshape((test_images.shape[0], -1))  # Shape (10000, 3072)
+
+# Create Dataset objects
+train_dataset = Dataset(train_images_flat, train_labels)
+test_dataset = Dataset(test_images_flat, test_labels)
+
 suite = full_suite()
 result = suite.run(train_dataset, test_dataset)
 logging.info(result.passed())

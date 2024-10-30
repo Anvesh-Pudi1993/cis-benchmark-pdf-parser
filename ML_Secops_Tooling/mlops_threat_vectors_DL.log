@@ -1,0 +1,26 @@
+2024-10-25 12:49:26,987 INFO Step 1: Filtering data for selected categories
+2024-10-25 12:49:27,092 INFO Step 2: Checking data injection and transformation for CIFAR-10
+2024-10-25 12:49:27,136 INFO No data poisoning detected.
+2024-10-25 12:49:27,136 INFO Step 3: Running EDA checks with Deepchecks
+2024-10-25 12:49:28,718 WARNING It is recommended to initialize Dataset with categorical features by doing "Dataset(df, cat_features=categorical_list)". No categorical features were passed, therefore heuristically inferring categorical features in the data. 0 categorical features were inferred.
+2024-10-25 12:49:29,626 WARNING It is recommended to initialize Dataset with categorical features by doing "Dataset(df, cat_features=categorical_list)". No categorical features were passed, therefore heuristically inferring categorical features in the data. 0 categorical features were inferred.
+2024-10-25 13:06:33,191 WARNING Features importance was not calculated:
+Skipping permutation importance calculation: calculation was projected to finish in 5089 seconds, but timeout was configured to 120 seconds
+2024-10-25 13:36:36,325 INFO False
+2024-10-25 13:36:36,325 INFO Step 4: Checking model training for adversarial vulnerabilities
+2024-10-25 13:36:36,797 INFO Using model predictions as correct labels for FGM.
+2024-10-25 13:36:41,333 INFO Success rate of FGM attack: 0.00%
+2024-10-25 13:39:24,608 INFO Step 1: Filtering data for selected categories
+2024-10-25 13:39:24,750 INFO Step 2: Checking data injection and transformation for CIFAR-10
+2024-10-25 13:39:24,823 INFO No data poisoning detected.
+2024-10-25 13:39:24,823 INFO Step 3: Running EDA checks with Deepchecks
+2024-10-25 13:39:26,731 WARNING It is recommended to initialize Dataset with categorical features by doing "Dataset(df, cat_features=categorical_list)". No categorical features were passed, therefore heuristically inferring categorical features in the data. 0 categorical features were inferred.
+2024-10-25 13:39:27,934 WARNING It is recommended to initialize Dataset with categorical features by doing "Dataset(df, cat_features=categorical_list)". No categorical features were passed, therefore heuristically inferring categorical features in the data. 0 categorical features were inferred.
+2024-10-25 14:12:26,863 WARNING Features importance was not calculated:
+Skipping permutation importance calculation: calculation was projected to finish in 7661 seconds, but timeout was configured to 120 seconds
+2024-10-25 14:36:16,235 INFO False
+2024-10-25 14:36:16,235 INFO Step 4: Checking model training for adversarial vulnerabilities
+2024-10-25 14:36:16,591 INFO Using model predictions as correct labels for FGM.
+2024-10-25 14:36:20,172 INFO Success rate of FGM attack: 0.00%
+2024-10-25 14:36:20,622 INFO Model accuracy on adversarial samples: 0.33666666666666667
+2024-10-25 14:36:20,622 INFO Step 5: Running evaluation checks with Deepchecks

@@ -14,8 +14,6 @@ from art.attacks.evasion import FastGradientMethod
 from art.estimators.classification import TensorFlowV2Classifier
 from tensorflow import keras
 import tensorflow as tf
-
-
 # Initialize logging
 logging.basicConfig(filename="mlops_threat_vectors.log", level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")

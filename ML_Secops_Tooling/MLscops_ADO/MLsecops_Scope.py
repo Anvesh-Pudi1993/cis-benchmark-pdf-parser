@@ -72,7 +72,33 @@ class ScopeStage:
             return f"Missing dependency: {e}"
         return "Supply chain dependencies verified."
 
-    # Step 7: Threat Modeling Checks
+    # Step 7: Governance, Risk, and Compliance Checks
+    def one_trust_compliance_check(self):
+        # Simulate a OneTrust-based compliance check
+        compliance_areas = {
+            "data_privacy": "Compliant",
+            "security_controls": "Compliant",
+            "regulatory_requirements": "Partially Compliant",
+        }
+        return compliance_areas
+
+    def nist_rmf_risk_check(self, metadata):
+        # Simulate a NIST RMF-based risk assessment
+        risks = {
+            "data_confidentiality": "Low" if metadata["data_hash"] else "High",
+            "data_availability": "Low" if "keras" in metadata["dependencies"] else "Medium",
+            "system_resilience": "Medium",
+        }
+        return risks
+
+    def iso_31000_risk_management(self, risks):
+        # Simulate ISO 31000-based risk treatment and recommendations
+        treatment_plan = {
+            risk: ("Monitor" if level == "Low" else "Mitigate") for risk, level in risks.items()
+        }
+        return treatment_plan
+
+    # Step 8: Threat Modeling Checks
     def threat_model_check(self):
         checks = {
             "Supply Chain Vulnerabilities": self.check_supply_chain_vulnerabilities()
@@ -88,11 +114,11 @@ class ScopeStage:
         model = self.create_cnn()
 
         # Train the model
-        model.fit(x_train, y_train, epochs=3, batch_size=32, validation_split=0.1)
+        # model.fit(x_train, y_train, epochs=3, batch_size=32, validation_split=0.1)
 
-        # Evaluate the model
-        test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
-        print(f"Test Accuracy: {test_acc}")
+        # # Evaluate the model
+        # test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+        # print(f"Test Accuracy: {test_acc}")
 
         # Perform threat model checks
         checks = self.threat_model_check()
@@ -102,15 +128,25 @@ class ScopeStage:
         # Generate provenance metadata
         metadata = self.generate_provenance_metadata(model, (x_train, y_train))
 
+        # Perform GRC checks
+        compliance = self.one_trust_compliance_check()
+        risks = self.nist_rmf_risk_check(metadata)
+        treatment_plan = self.iso_31000_risk_management(risks)
+
         # Perform risk assessment using OCTAVE Allegro principles
         risks = self.octave_risk_assessment(metadata)
 
         # Simulate RSA Archer reporting
         report = self.rsa_archer_report(metadata, risks)
 
-        # Print the provenance report
+        # Print results
         print("Model Provenance Report:")
         print(report)
+
+        print("\nGovernance, Risk, and Compliance Results:")
+        print("OneTrust Compliance Check:", compliance)
+        print("NIST RMF Risk Assessment:", risks)
+        print("ISO 31000 Risk Treatment Plan:", treatment_plan)
 
 
 if __name__ == "__main__":

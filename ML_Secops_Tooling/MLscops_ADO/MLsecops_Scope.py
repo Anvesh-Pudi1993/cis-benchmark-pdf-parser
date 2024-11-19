@@ -104,6 +104,27 @@ class ScopeStage:
             "Supply Chain Vulnerabilities": self.check_supply_chain_vulnerabilities()
         }
         return checks
+    
+    def check_bias(self, data):
+        x_train, y_train = data
+        class_distribution = np.bincount(y_train)
+        bias_detected = any(count / len(y_train) < 0.1 for count in class_distribution)
+        return "Bias Detected: Class distribution is uneven." if bias_detected else "Bias Check Passed: Class distribution is balanced."
+
+    def check_fairness(self, predictions, labels):
+        disparities = [np.mean(predictions[labels == i]) for i in range(10)]
+        fairness_violation = max(disparities) - min(disparities) > 0.1
+        return "Fairness Check Failed: Performance disparities detected across classes." if fairness_violation else "Fairness Check Passed: Performance is consistent across classes."
+
+    def explainability_check(self, model):
+        explainability_metrics = {
+            "simple_architecture": len(model.layers) < 10,
+            "interpretable_activations": all("relu" in layer.activation.__name__ for layer in model.layers if hasattr(layer, "activation")),
+        }
+        if not all(explainability_metrics.values()):
+            return "Explainability Check Failed: Model is complex or lacks transparent activations."
+        return "Explainability Check Passed: Model is simple and interpretable."
+
 
     # Main Functionality
     def main(self):
@@ -113,14 +134,15 @@ class ScopeStage:
         # Create CNN
         model = self.create_cnn()
 
-        # Train the model
-        # model.fit(x_train, y_train, epochs=3, batch_size=32, validation_split=0.1)
+        model.fit(x_train, y_train, epochs=3, batch_size=32, validation_split=0.1)
 
-        # # Evaluate the model
-        # test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
-        # print(f"Test Accuracy: {test_acc}")
+        # Evaluate the model
+        test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
+        predictions = np.argmax(model.predict(x_test), axis=1)
+        print(f"Test Accuracy: {test_acc}")
 
         # Perform threat model checks
+        print("\n Supply chain vulnerability results")
         checks = self.threat_model_check()
         for check, result in checks.items():
             print(f"{check}: {result}")
@@ -139,6 +161,10 @@ class ScopeStage:
         # Simulate RSA Archer reporting
         report = self.rsa_archer_report(metadata, risks)
 
+        bias_check = self.check_bias((x_train, y_train))
+        fairness_check = self.check_fairness(predictions, y_test)
+        explainability_check = self.explainability_check(model)
+
         # Print results
         print("Model Provenance Report:")
         print(report)
@@ -147,6 +173,11 @@ class ScopeStage:
         print("OneTrust Compliance Check:", compliance)
         print("NIST RMF Risk Assessment:", risks)
         print("ISO 31000 Risk Treatment Plan:", treatment_plan)
+
+        print("\nTrusted AI Checks:")
+        print("Bias Check:", bias_check)
+        print("Fairness Check:", fairness_check)
+        print("Explainability Check:", explainability_check)
 
 
 if __name__ == "__main__":

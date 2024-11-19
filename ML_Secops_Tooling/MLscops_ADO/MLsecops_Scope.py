@@ -142,7 +142,7 @@ class ScopeStage:
         print(f"Test Accuracy: {test_acc}")
 
         # Perform threat model checks
-        print("\n Supply chain vulnerability results")
+        print("\n Supply chain vulnerability results") 
         checks = self.threat_model_check()
         for check, result in checks.items():
             print(f"{check}: {result}")
